@@ -1,0 +1,84 @@
+<div th:fragment="navbar-admin">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <!-- Container wrapper -->
+        <div class="container">
+            <!-- Toggle button -->
+            <button
+                    data-mdb-collapse-init
+                    class="navbar-toggler"
+                    type="button"
+                    data-mdb-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+            >
+            </button>
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Navbar brand -->
+                <a class="navbar-brand me-2" href="/admin/dashboard">
+                    <img th:src="@{/img/jo_2024.svg}" width="50" alt="logo J.O 2024">
+                </a>
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/dashboard">Tableau de bord</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/offres">Offres</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/clients">Clients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/commandes">Commandes</a>
+                    </li>
+                </ul>
+                <!-- Left links -->
+            </div>
+            <!-- Collapsible wrapper -->
+
+            <!-- Right elements -->
+            <div class="d-flex align-items-center">
+                <!-- Avatar -->
+                <div class="dropdown">
+                    <a
+                            th:if="${currentUser != null}"
+                            data-mdb-dropdown-init
+                            class="dropdown-toggle d-flex align-items-center hidden-arrow"
+                            href="#"
+                            id="navbarDropdownMenuAvatar"
+                            role="button"
+                            aria-expanded="false"
+                    >
+                        <i class="fa-solid fa-circle-user" style="color: #74C0FC;"></i>
+
+<!--                        <span sec:authentication="name"></span>-->
+                        <span th:text="${currentUser.prenom} + ' ' + ${currentUser.nom}"></span>
+                    </a>
+                    <ul
+                            class="dropdown-menu dropdown-menu-end"
+                            aria-labelledby="navbarDropdownMenuAvatar"
+                    >
+                        <li class="nav-item">
+                            <a class="dropdown-item" th:if="${currentUser != null}"
+                               th:href="@{/admin/mon-profil-admin/{id}(id=${currentUser.id})}">
+                                Mon Profil
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="dropdown-item" href="/admin/logout">Se Déconnecter</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Right elements -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+
+</div>

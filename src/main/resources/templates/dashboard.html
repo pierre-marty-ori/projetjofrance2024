@@ -1,0 +1,31 @@
+<div th:insert="~{fragments/header :: header}"></div>
+
+<div th:insert="~{fragments/navbar-admin :: navbar-admin}"></div>
+
+<h1 th:text="${title}" class="text-center my-4"></h1>
+
+<div sec:authorize="isAuthenticated()">
+    <p class="text-center">Bonjour, <span sec:authentication="name"></span></p>
+
+    <p class="text-center" th:text="${totalCommandes} + ' commandes au total'"></p>
+
+    <div class="container text-center my-3">
+        <div class="row align-items-center">
+            <div class="col">
+                <p>Offre Solo</p>
+                <p class="fw-bold fs-3" th:text="${totalCommandesOffreSolo}"></p>
+            </div>
+            <div class="col border-start border-end">
+                <p>Offre Duo</p>
+                <p class="fw-bold fs-3" th:text="${totalCommandesOffreDuo}"></p>
+            </div>
+            <div class="col">
+                <p>Offre Famille</p>
+                <p class="fw-bold fs-3" th:text="${totalCommandesOffreFamille}"></p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div th:insert="~{fragments/footer :: footer}"></div>

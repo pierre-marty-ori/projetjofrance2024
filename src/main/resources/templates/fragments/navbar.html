@@ -1,0 +1,102 @@
+<div th:fragment="navbar">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <!-- Container wrapper -->
+        <div class="container">
+            <!-- Navbar brand -->
+            <a class="navbar-brand me-2" href="/">
+                <img th:src="@{/img/jo_2024.svg}" width="50" alt="logo J.O 2024">
+            </a>
+
+            <!-- Toggle button -->
+            <button
+                    data-mdb-collapse-init
+                    class="navbar-toggler"
+                    type="button"
+                    data-mdb-target="#navbarButtonsExample"
+                    aria-controls="navbarButtonsExample"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+            >
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarButtonsExample">
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/offres">Offres</a>
+                    </li>
+                </ul>
+                <!-- Left links -->
+
+                <div class="d-flex align-items-center">
+                    <div sec:authorize="isAnonymous()">
+                        <a href="/user/login">
+                            <button data-mdb-ripple-init type="button" class="btn btn-link px-3 me-2">
+                                Se connecter
+                            </button>
+                        </a>
+                        <a class="text-white" href="/user/register">
+                            <button data-mdb-ripple-init type="button" class="btn btn-primary me-3">
+                                Créer un compte
+                            </button>
+                        </a>
+                    </div>
+
+                    <a class="text-reset me-3 position-relative" href="/panier">
+                        <div id="cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="badge badge-pill rounded-circle bg-danger" th:text="${cartCount}">0</span>
+                        </div>
+                    </a>
+
+                    <div class="m-1" sec:authorize="isAuthenticated()">
+                        <ul class="navbar-nav d-flex flex-row">
+                            <!-- Icon dropdown -->
+                            <li class="nav-item me-3 me-lg-0 dropdown">
+                                <a
+                                        data-mdb-dropdown-init
+                                        class="nav-link dropdown-toggle"
+                                        href="#"
+                                        id="navbarDropdown"
+                                        role="button"
+                                        aria-expanded="false"
+                                >
+                                    <i class="fas fa-circle-user"></i>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li>
+                                        <a class="dropdown-item" th:if="${currentUser != null}"
+                                           th:href="@{/user/votre-profil/{id}(id=${currentUser.id})}">
+                                            Mon Profil
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" th:if="${currentUser != null}"
+                                           th:href="@{/user/vos-commandes/{id}(id=${currentUser.id})}">
+                                            Voir mes commandes
+                                        </a>
+                                    </li>
+                                    <li><hr class="dropdown-divider" /></li>
+                                    <li>
+                                        <a class="dropdown-item" href="/logout">Se Déconnecter</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+</div>
+
+

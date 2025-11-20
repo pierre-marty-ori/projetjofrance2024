@@ -1,0 +1,12 @@
+<div th:insert="~{fragments/header :: header}"></div>
+<div th:insert="~{fragments/navbar-admin :: navbar-admin}"></div>
+
+<div class="container my-4">
+    <h1 class="text-center" th:text="${title}"></h1>
+
+    <p th:text="${user.nom}"></p>
+    <p th:text="${user.prenom}"></p>
+
+</div>
+
+<div th:insert="~{fragments/footer :: footer}"></div>

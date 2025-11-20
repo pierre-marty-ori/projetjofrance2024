@@ -1,0 +1,76 @@
+<div th:insert="~{fragments/header :: header}"></div>
+<div th:insert="~{fragments/navbar :: navbar}"></div>
+
+<div class="container-fluid">
+
+<div
+        class="p-5 text-center bg-image"
+        th:style="
+        'background-image: url(' + @{/img/stade_paris_2024.jpg} + ');
+        height:750px'
+        "
+>
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.8);">
+        <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-white">
+                <h1 class="mb-3">Jeux Olympiques Paris 2024</h1>
+                <h4 class="mb-3">du 26 juillet au 11 août 2024</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2 class="text-center my-4">Les différentes épreuves</h2>
+
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                <img th:src="@{/img/basketball3x3.jpg}" class="img-fluid"/>
+                <a href="#!">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                </a>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Basketball 3x3</h5>
+                <p class="card-text">Le basket 3x3 est une version passionnante, urbaine et novatrice du basket, qui se joue avec trois joueurs par équipe sur un demi-terrain, où se trouve un cerceau et une planche arrière. Il est considéré comme le sport collectif urbain le plus populaire au monde.</p>
+<!--                <a href="#!" class="btn btn-primary" data-mdb-ripple-init>Button</a>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="card">
+            <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                <img th:src="@{/img/rugbysevens.jpg}" class="img-fluid"/>
+                <a href="#!">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                </a>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Rugby à 7</h5>
+                <p class="card-text">Le rugby à 7 est le format à sept joueurs du rugby, sport qui peut également se pratiquer sous un format à 15.</p>
+<!--                <a href="#!" class="btn btn-primary" data-mdb-ripple-init>Button</a>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="card">
+            <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                <img th:src="@{/img/escrime.webp}" class="img-fluid"/>
+                <a href="#!">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                </a>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Escrime</h5>
+                <p class="card-text">L’escrime est un sport de combat dans lequel deux athlètes utilisent des armes blanches pour s’attaquer et se défendre dans le but de frapper son adversaire et, donc, de marquer des points.</p>
+<!--                <a href="#!" class="btn btn-primary" data-mdb-ripple-init>Button</a>-->
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+<div th:insert="~{fragments/footer :: footer}"></div>

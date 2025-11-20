@@ -1,0 +1,39 @@
+<div th:insert="~{fragments/header :: header}"></div>
+<div th:insert="~{fragments/navbar :: navbar}"></div>
+
+<div class="container mt-5">
+    <h1 th:text="${title}"></h1>
+    <hr>
+
+    <div th:if="${success}" class="alert alert-success">
+        Compte crée avec succès. Vous pouvez vous connecter.
+    </div>
+
+    <form th:object="${userDTO}" method="post">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+        <div class="mb-3">
+            <label for="prenom" class="form-label">Prénom</label>
+            <input class="form-control" type="text" id="prenom" th:field="*{prenom}">
+            <p th:if="${#fields.hasErrors('prenom')}" th:class="text-danger" th:errors="*{prenom}"></p>
+        </div>
+        <div class="mb-3">
+            <label for="nom" class="form-label">Nom</label>
+            <input class="form-control" type="text" id="nom" th:field="*{nom}">
+            <p th:if="${#fields.hasErrors('nom')}" th:class="text-danger" th:errors="*{nom}"></p>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input class="form-control" type="email" id="email" th:field="*{email}">
+            <p th:if="${#fields.hasErrors('email')}" th:class="text-danger" th:errors="*{email}"></p>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Mot de passe</label>
+            <input class="form-control" type="password" id="password" th:field="*{password}">
+            <p th:if="${#fields.hasErrors('password')}" th:class="text-danger" th:errors="*{password}"></p>
+        </div>
+        <button class="btn btn-primary form-control" type="submit">S'enregistrer</button>
+    </form>
+
+</div>
+
+<div th:insert="~{fragments/footer :: footer}"></div>
