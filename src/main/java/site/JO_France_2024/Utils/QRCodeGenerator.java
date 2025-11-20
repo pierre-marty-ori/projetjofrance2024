@@ -15,7 +15,7 @@ import java.util.UUID;
 public class QRCodeGenerator {
 
     public static String generateQRCode(CommandeEntity commande) throws WriterException, IOException {
-        String qrCodePath = "C:\\wamp64\\www\\JO_France_2024\\public\\qrcodes\\";
+        String qrCodePath = "https://projetjofrance2024-production.up.railway.app\\public\\qrcodes\\";
         String qrCodeName = UUID.randomUUID() + "-qrcode.jpeg";
         String qrCodeFilePath = qrCodePath + qrCodeName;
         var qrCodeWriter = new QRCodeWriter();
